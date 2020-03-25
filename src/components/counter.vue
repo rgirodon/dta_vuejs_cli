@@ -6,8 +6,14 @@
 export default {
   name: 'counter',
   props: {
-    count: Number,
-    increment: Number
+    count: {
+      type : Number,
+      default: 0
+    },
+    increment: {
+      type : Number,
+      default: 1
+    }
   },
   methods: {
     incrementCount: function() {
@@ -19,4 +25,8 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+button {
+  background-color: #255483;
+  color: #ffffff;
+}
 </style>

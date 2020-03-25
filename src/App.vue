@@ -1,27 +1,25 @@
 <template>
   <div id="app">    
-    <counter v-bind:count="0" v-bind:increment="1"/>
+    <nav>
+      <router-link to="/counter">Counter</router-link>
+
+      <router-link to="/shopping/epicerie">Shopping List Epicerie</router-link>
+
+      <router-link to="/shopping/bricolage">Shopping List Bricolage</router-link>
+    </nav>
+    <router-view></router-view>   
   </div>
 </template>
 
 <script>
-import counter from './components/counter.vue'
 
 export default {
-  name: 'App',
-  components: {
-    counter
-  }
-}
+  name: 'App'
+};
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+nav a+a {
+  margin-left: 10px;
 }
 </style>
