@@ -1,17 +1,16 @@
 <template>
   <div id="app">    
-    <counter v-bind:count="0" v-bind:increment="1"/>
+    <nav>
+      <router-link to="/counter">Counter</router-link>
+      <router-link to="/string-reverser">String Reverser</router-link>
+    </nav>
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-import counter from './components/counter.vue'
-
 export default {
-  name: 'App',
-  components: {
-    counter
-  }
+  name: 'App'
 }
 </script>
 
@@ -23,5 +22,9 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+
+#app nav a {
+  margin: 10px;
 }
 </style>

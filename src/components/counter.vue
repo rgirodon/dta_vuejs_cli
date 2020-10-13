@@ -1,17 +1,34 @@
 <template>
-  <button v-on:click="incrementCount">You clicked me {{ count }} times.</button>
+  <div>
+    <p>Button Component</p>
+    <button v-on:click="incrementCount">You clicked me {{ counterValue }} times.</button>
+  </div>
 </template>
 
 <script>
 export default {
   name: 'counter',
+  data: function() {
+    return {
+      counterValue: 0
+    };
+  },
   props: {
-    count: Number,
-    increment: Number
+    count: {
+      type : Number,
+      default: 0
+    },
+    increment: {
+      type : Number,
+      default: 1
+    }
+  },
+  created: function() {
+    this.counterValue = this.count;
   },
   methods: {
     incrementCount: function() {
-        this.count = this.count + this.increment;
+        this.counterValue = this.counterValue + this.increment;
     }
   }
 }
