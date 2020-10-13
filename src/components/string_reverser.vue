@@ -10,14 +10,19 @@
 <script>
 export default {
   name: 'string-reverser',
-  data: function() {
-    return {
-      message: ''
-    };
+  computed: {
+    message: {
+      get () {
+        return this.$store.state.message
+      },
+      set (newValue) {
+        return this.$store.commit('setMessage', newValue)
+      }
+    }
   },
   methods: {
     reverse: function() {
-        this.message = this.message.split('').reverse().join('');
+      this.$store.commit('reverse');
     }
   }
 }

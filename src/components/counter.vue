@@ -8,27 +8,14 @@
 <script>
 export default {
   name: 'counter',
-  data: function() {
-    return {
-      counterValue: 0
-    };
-  },
-  props: {
-    count: {
-      type : Number,
-      default: 0
-    },
-    increment: {
-      type : Number,
-      default: 1
+  computed: {
+    counterValue: function() {
+      return this.$store.state.count;
     }
-  },
-  created: function() {
-    this.counterValue = this.count;
   },
   methods: {
     incrementCount: function() {
-        this.counterValue = this.counterValue + this.increment;
+      this.$store.commit('increment');
     }
   }
 }
