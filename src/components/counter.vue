@@ -1,17 +1,25 @@
 <template>
-  <button v-on:click="incrementCount">You clicked me {{ count }} times.</button>
+  <button v-on:click="incrementCount">You clicked me {{ count_value }} times.</button>
 </template>
 
 <script>
 export default {
   name: 'counter',
+  data: function() {
+    return {
+      count_value: Number
+    }
+  },
   props: {
     count: Number,
     increment: Number
   },
+  mounted: function() {
+    this.count_value = this.count;
+  },
   methods: {
     incrementCount: function() {
-        this.count = this.count + this.increment;
+        this.count_value = this.count_value + this.increment;
     }
   }
 }
